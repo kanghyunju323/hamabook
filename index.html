@@ -43,11 +43,11 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
 .side ul{list-style:none;margin:0;padding:10px 12px}
 .side li{padding:3px 0}.side li:before{content:"";display:inline-block;width:4px;height:4px;background:#999;margin:0 6px 2px 0}
 .side li.on{color:var(--g);font-weight:700}
-.side .rec{padding:10px 12px}.side .rec div{height:150px}
+.side .rec{padding:10px 12px}.side .rec div{height:150px}.side .rec img{width:100%;height:100%;object-fit:contain;display:block}
 .loc{background:var(--box);padding:7px 12px;font-size:11px;color:var(--sub);text-align:right}
 .loc b{float:left;color:var(--ink)}
 .pdp{display:grid;grid-template-columns:340px 1fr;gap:26px;margin-top:20px}
-.cover{height:400px;border:1px solid var(--line)}
+.cover{height:400px;border:1px solid var(--line);overflow:hidden}.cover img{width:100%;height:100%;object-fit:contain;display:block}
 .info h1{color:var(--g);font-size:16px;margin:0 0 10px;padding-bottom:10px;border-bottom:2px solid var(--g)}
 .info table{width:100%;border-collapse:collapse}
 .info th{width:90px;text-align:left;font-weight:400;color:var(--sub);padding:6px 0;vertical-align:top}
@@ -71,10 +71,10 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
 .art{background:#FFF3D6;text-align:center;padding:60px 40px;margin-bottom:24px;font-size:15px;line-height:2}
 .art .q{font-size:20px;color:#8A6A2E;margin:40px 0 14px;font-family:"Nanum Myeongjo",serif}
 .art h2{font-size:44px;color:var(--g);letter-spacing:.2em;margin:0}.art .by{color:var(--g);font-size:16px;margin:6px 0 30px}
-.art .bk{width:300px;height:380px;margin:0 auto;box-shadow:10px 14px 0 rgba(0,0,0,.08)}
-.art .sp{height:360px;margin:40px -40px}
+.art .bk{width:300px;height:380px;margin:0 auto;box-shadow:10px 14px 0 rgba(0,0,0,.08);overflow:hidden}.art .bk img{width:100%;height:100%;object-fit:contain;display:block}
+.art .sp{height:auto;margin:40px -40px}.art .sp img{width:100%;height:auto;display:block}
 .art .meta-copy{min-height:72px;margin:40px 0 14px;display:flex;align-items:center;justify-content:center}
-.art .meta-image{height:420px;margin:40px 0}
+.art .meta-image{height:auto;margin:40px 0}.art .meta-image img{width:100%;height:auto;display:block}
 .art .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:13px;line-height:1.6}.art .grid div{background:#fff;padding:14px}.art .grid b{display:block;color:var(--g)}
 .spec{width:100%;border-collapse:collapse;border-top:2px solid #555}
 .spec th,.spec td{border:1px solid var(--line);padding:8px 10px;text-align:left}
@@ -113,12 +113,12 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
 <main class="w body">
   <aside class="side">
     <div class="box"><h3>카테고리</h3><ul><li>그림책</li><li class="on">팝업북</li><li>사운드북</li><li>자연관찰</li><li>빅북</li></ul></div>
-    <div class="box"><h3>추천도서</h3><div class="rec"><div><div class="ph "><span><span class="todo">책 표지</span></span></div></div><p style="margin:6px 0 0">펼쳐라, 석기시대!</p></div></div>
+    <div class="box"><h3>추천도서</h3><div class="rec"><div><img src="assets/stone-age-cover.webp" alt="펼쳐라, 석기시대! 책 표지"></div><p style="margin:6px 0 0">펼쳐라, 석기시대!</p></div></div>
   </aside>
   <div>
     <p class="loc">현재위치 : HOME &gt; 도서 &gt; 팝업북</p>
     <section class="pdp">
-      <div class="cover"><div class="ph "><span><span class="todo">책 표지</span></span></div></div>
+      <div class="cover"><img src="assets/dinosaur-cover.webp" alt="펼쳐라, 공룡시대! 책 표지"></div>
       <div class="info">
         <h1>펼쳐라, 공룡시대!</h1>
         <table>
@@ -137,17 +137,17 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
       <p class="q">평일에는 일하는 아빠, 주말에는 아이가 기다리는 공룡 탐험 대장이 되어보세요.</p>
       <h2>공룡의 비밀</h2>
       <p class="by">라일라 로시 지음</p>
-      <div class="bk"><div class="ph "><span><span class="todo">책 표지</span></span></div></div>
+      <div class="bk"><img src="assets/dinosaur-cover.webp" alt="펼쳐라, 공룡시대! 책 표지"></div>
       <p class="q">"펼치는 순간, 우리 집이 공룡시대가 돼요."</p>
       <p>큰 입을 벌리는 티라노사우루스부터 긴 목을 뻗는 브라키오사우루스까지. 공룡 팝업이 각 페이지마다 튀어나와요.</p>
-      <div class="sp"><div class="ph "><span><span class="todo">펼친 페이지 사진 1</span></span></div></div>
+      <div class="sp"><img src="assets/spread-01.webp" alt="트리케라톱스 팝업 페이지"></div>
       <p class="q">공룡을 좋아하는 아이를 위한 20개의 입체 팝업</p>
       <div class="grid"><div><b>메인 팝업 6개</b>펼치는 순간 공룡이 일어서는 큰 팝업</div><div><b>미니 팝업 14개</b>들추고 당기며 찾는 작은 팝업</div><div><b>리딩 QR</b>읽어 주기 힘든 날 함께 듣는 이야기</div></div>
-      <div class="sp"><div class="ph "><span><span class="todo">펼친 페이지 사진 2</span></span></div></div>
+      <div class="sp"><img src="assets/spread-02.webp" alt="플레시오사우루스 팝업 페이지"></div>
       <p class="q">"들추고 당기며 찾는 미니 팝업 14개"</p><p>아이가 직접 손으로 찾으며 공룡 이름을 익힙니다.</p>
-      <div class="sp"><div class="ph "><span><span class="todo">펼친 페이지 사진 3</span></span></div></div>
+      <div class="sp"><img src="assets/spread-03.webp" alt="프테라노돈 팝업 페이지"></div>
       <div class="meta-copy">짧은 주말이지만, 아이의 마음에는 오래 남을 추억을 남겨보세요.</div>
-      <div class="meta-image"><div class="ph "><span><span class="todo">메타 광고 이미지</span></span></div></div>
+      <div class="meta-image"><img src="assets/meta-ad.webp" alt="아이와 함께 공룡 팝업북을 읽는 아빠"></div>
     </section>
     <section class="sec" id="spec">
       <h2>도서 정보</h2>
