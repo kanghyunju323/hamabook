@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap"><link rel="stylesheet" href="assets/base.css">
 <style>
+@font-face{font-family:"Hama RIDI Batang";src:url("assets/fonts/ridibatang-subset.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Hama SB Aggro";src:url("assets/fonts/sb-aggro-bold-subset.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
 :root{--g:#176B5B;--ac:#F4A340;--ink:#333;--sub:#777;--line:#DDD;--box:#F2F2F2}
 body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--ink);background:#fff;font-size:12px;line-height:1.6}
 .w{width:980px;max-width:100%;margin:0 auto}
@@ -69,13 +71,13 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
 .sec .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .sec .grid div{border:1px solid var(--line);padding:12px}.sec .grid b{color:var(--g);display:block}
 .art{background:#FFF3D6;text-align:center;padding:60px 40px;margin-bottom:24px;font-size:15px;line-height:2}
-.art .q{font-size:20px;color:#8A6A2E;margin:40px 0 14px;font-family:"Nanum Myeongjo",serif}
-.art h2{font-size:44px;color:var(--g);letter-spacing:.2em;margin:0}.art .by{color:var(--g);font-size:16px;margin:6px 0 30px}
+.art .q{font-size:20px;color:#8A6A2E;margin:40px 0 14px;font-family:"Hama RIDI Batang","Nanum Myeongjo",serif}
+.art h2{font-size:44px;color:var(--g);letter-spacing:.2em;margin:0;font-family:"Hama SB Aggro","Pretendard Variable",sans-serif;font-weight:700}.art .by{color:var(--g);font-size:16px;margin:6px 0 30px}
 .art .bk{width:300px;height:380px;margin:0 auto;box-shadow:10px 14px 0 rgba(0,0,0,.08);overflow:hidden}.art .bk img{width:100%;height:100%;object-fit:contain;display:block}
 .art .sp{height:auto;margin:40px -40px}.art .sp img{width:100%;height:auto;display:block}
 .art .meta-copy{min-height:72px;margin:40px 0 14px;display:flex;align-items:center;justify-content:center}
 .art .meta-image{height:auto;margin:40px 0}.art .meta-image img{width:100%;height:auto;display:block}
-.art .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:13px;line-height:1.6}.art .grid div{background:#fff;padding:14px}.art .grid b{display:block;color:var(--g)}
+.art .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:13px;line-height:1.6}.art .grid div{background:#fff;padding:14px}.art .grid b{display:block;color:var(--g)}.art .ridi-body{font-family:"Hama RIDI Batang","Nanum Myeongjo",serif}
 .spec{width:100%;border-collapse:collapse;border-top:2px solid #555}
 .spec th,.spec td{border:1px solid var(--line);padding:8px 10px;text-align:left}
 .spec th{background:var(--box);width:160px;font-weight:400}
@@ -142,7 +144,7 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
       <p>큰 입을 벌리는 티라노사우루스부터 긴 목을 뻗는 브라키오사우루스까지. 공룡 팝업이 각 페이지마다 튀어나와요.</p>
       <div class="sp"><img src="assets/spread-01.webp" alt="트리케라톱스 팝업 페이지"></div>
       <p class="q">공룡을 좋아하는 아이를 위한 20개의 입체 팝업</p>
-      <div class="grid"><div><b>메인 팝업 6개</b>펼치는 순간 공룡이 일어서는 큰 팝업</div><div><b>미니 팝업 14개</b>들추고 당기며 찾는 작은 팝업</div><div><b>리딩 QR</b>읽어 주기 힘든 날 함께 듣는 이야기</div></div>
+      <div class="grid"><div><b>메인 팝업 6개</b>펼치는 순간 공룡이 일어서는 큰 팝업</div><div><b>미니 팝업 14개</b><span class="ridi-body">들추고 당기며 찾는 작은 팝업</span></div><div><b>리딩 QR</b>읽어 주기 힘든 날 함께 듣는 이야기</div></div>
       <div class="sp"><img src="assets/spread-02.webp" alt="플레시오사우루스 팝업 페이지"></div>
       <p class="q">"들추고 당기며 찾는 미니 팝업 14개"</p><p>아이가 직접 손으로 찾으며 공룡 이름을 익힙니다.</p>
       <div class="sp"><img src="assets/spread-03.webp" alt="프테라노돈 팝업 페이지"></div>
