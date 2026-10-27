@@ -79,6 +79,18 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
 .art .meta-image{height:auto;margin:40px 0}.art .meta-image img{width:100%;height:auto;display:block}
 .art .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:13px;line-height:1.6}.art .grid div{background:#fff;padding:14px}.art .grid b{display:block;color:var(--g)}.art .pretendard-body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif}
 .art p,.art h2,.art .grid div,.art .meta-copy{text-align:center}
+html{scroll-behavior:smooth}
+#reviews{scroll-margin-top:20px}
+.reviews{text-align:center}
+.reviews-intro{margin:0 0 18px;color:var(--sub)}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review-card{border:1px solid var(--line);background:#fff;padding:12px;text-align:left}
+.review-image{aspect-ratio:4/3;display:grid;place-items:center;background:var(--box);color:#888;text-align:center;overflow:hidden}
+.review-image img{width:100%;height:100%;object-fit:cover;display:block}
+.review-stars{margin:12px 0 4px;color:var(--ac);letter-spacing:.08em}
+.review-card h3{margin:0 0 6px;font-size:14px}
+.review-text{margin:0 0 10px;color:var(--sub)}
+.review-author{margin:0;font-weight:700}
 .spec{width:100%;border-collapse:collapse;border-top:2px solid #555}
 .spec th,.spec td{border:1px solid var(--line);padding:8px 10px;text-align:left}
 .spec th{background:var(--box);width:160px;font-weight:400}
@@ -95,7 +107,7 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
   .w{padding:0 14px}.band{font-size:12px}.logo-row .w{flex-wrap:wrap;height:auto;padding:12px 14px;gap:10px}.badges{display:none}.srch{max-width:none;flex-basis:100%}
   .gnb .w{overflow-x:auto;gap:16px}.gnb .r{display:none}
   .body{grid-template-columns:1fr}.side{display:none}.pdp{grid-template-columns:1fr}.cover-gallery{height:320px}
-  .tabs{grid-template-columns:repeat(3,1fr)}.sec .grid{grid-template-columns:1fr}.field{grid-template-columns:100px 1fr}.ft .w{grid-template-columns:1fr}
+  .tabs{grid-template-columns:repeat(3,1fr)}.sec .grid{grid-template-columns:1fr}.review-grid{grid-template-columns:1fr}.field{grid-template-columns:100px 1fr}.ft .w{grid-template-columns:1fr}
 }
 </style>
 <!-- GA4 (Day 34에 여기에 붙이기) -->
@@ -143,7 +155,7 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
     </section>
     <p class="pn"><span>◀ 이전상품</span><span>확대보기</span><span>다음상품 ▶</span></p>
 
-    <nav class="tabs"><a class="on" href="#intro">책소개</a><a href="#intro">작가소개</a><a href="#order">독자리뷰</a></nav>
+    <nav class="tabs"><a class="on" href="#intro">책소개</a><a href="#intro">작가소개</a><a href="#reviews">독자리뷰</a></nav>
     <section class="art" id="intro">
       <p class="q">평일에는 일하는 아빠,<br>주말에는 아이가 기다리는<br>공룡 탐험 대장이 되어보세요.</p>
       <h2>펼쳐라, 공룡시대!</h2>
@@ -159,6 +171,33 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
       <div class="sp"><img src="assets/spread-03.webp" alt="프테라노돈 팝업 페이지"></div>
       <div class="meta-copy">짧은 주말이지만,<br>아이의 마음에는 오래 남을<br>추억을 남겨보세요.</div>
       <div class="meta-image"><img src="assets/meta-ad.webp" alt="아이와 함께 공룡 팝업북을 읽는 아빠"></div>
+    </section>
+    <section class="reviews sec" id="reviews">
+      <h2>독자리뷰</h2>
+      <p class="reviews-intro">후기 자료가 준비되면 이곳에 등록됩니다.</p>
+      <div class="review-grid">
+        <article class="review-card">
+          <div class="review-image">후기 사진이 들어갈 자리 1</div>
+          <p class="review-stars">별점이 들어갈 자리</p>
+          <h3>후기 제목이 들어갈 자리</h3>
+          <p class="review-text">후기 내용이 들어갈 자리입니다.</p>
+          <p class="review-author">작성자명이 들어갈 자리</p>
+        </article>
+        <article class="review-card">
+          <div class="review-image">후기 사진이 들어갈 자리 2</div>
+          <p class="review-stars">별점이 들어갈 자리</p>
+          <h3>후기 제목이 들어갈 자리</h3>
+          <p class="review-text">후기 내용이 들어갈 자리입니다.</p>
+          <p class="review-author">작성자명이 들어갈 자리</p>
+        </article>
+        <article class="review-card">
+          <div class="review-image">후기 사진이 들어갈 자리 3</div>
+          <p class="review-stars">별점이 들어갈 자리</p>
+          <h3>후기 제목이 들어갈 자리</h3>
+          <p class="review-text">후기 내용이 들어갈 자리입니다.</p>
+          <p class="review-author">작성자명이 들어갈 자리</p>
+        </article>
+      </div>
     </section>
     <section class="sec" id="spec">
       <h2>도서 정보</h2>
