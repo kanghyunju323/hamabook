@@ -83,14 +83,19 @@ html{scroll-behavior:smooth}
 #reviews{scroll-margin-top:20px}
 .reviews{text-align:center}
 .reviews-intro{margin:0 0 18px;color:var(--sub)}
-.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.review-card{border:1px solid var(--line);background:#fff;padding:12px;text-align:left}
+.review-carousel{position:relative;max-width:620px;margin:0 auto;padding:0 48px}
+.review-track{width:100%}
+.review-card{display:none;border:1px solid var(--line);background:#fff;padding:16px;text-align:left}
+.review-card.is-active{display:block}
 .review-image{aspect-ratio:4/3;display:grid;place-items:center;background:var(--box);color:#888;text-align:center;overflow:hidden}
 .review-image img{width:100%;height:100%;object-fit:cover;display:block}
 .review-stars{margin:12px 0 4px;color:var(--ac);letter-spacing:.08em}
 .review-card h3{margin:0 0 6px;font-size:14px}
 .review-text{margin:0 0 10px;color:var(--sub)}
 .review-author{margin:0;font-weight:700}
+.review-nav{position:absolute;z-index:2;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:24px;line-height:1;cursor:pointer}
+.review-nav.prev{left:0}.review-nav.next{right:0}
+.review-count{margin:12px 0 0;text-align:center;color:var(--sub)}
 .spec{width:100%;border-collapse:collapse;border-top:2px solid #555}
 .spec th,.spec td{border:1px solid var(--line);padding:8px 10px;text-align:left}
 .spec th{background:var(--box);width:160px;font-weight:400}
@@ -107,7 +112,7 @@ html{scroll-behavior:smooth}
   .w{padding:0 14px}.band{font-size:12px}.logo-row .w{flex-wrap:wrap;height:auto;padding:12px 14px;gap:10px}.badges{display:none}.srch{max-width:none;flex-basis:100%}
   .gnb .w{overflow-x:auto;gap:16px}.gnb .r{display:none}
   .body{grid-template-columns:1fr}.side{display:none}.pdp{grid-template-columns:1fr}.cover-gallery{height:320px}
-  .tabs{grid-template-columns:repeat(3,1fr)}.sec .grid{grid-template-columns:1fr}.review-grid{grid-template-columns:1fr}.field{grid-template-columns:100px 1fr}.ft .w{grid-template-columns:1fr}
+  .tabs{grid-template-columns:repeat(3,1fr)}.sec .grid{grid-template-columns:1fr}.review-carousel{padding:0 42px}.field{grid-template-columns:100px 1fr}.ft .w{grid-template-columns:1fr}
 }
 </style>
 <!-- GA4 (Day 34에 여기에 붙이기) -->
@@ -175,8 +180,10 @@ html{scroll-behavior:smooth}
     <section class="reviews sec" id="reviews">
       <h2>독자리뷰</h2>
       <p class="reviews-intro">후기 자료가 준비되면 이곳에 등록됩니다.</p>
-      <div class="review-grid">
-        <article class="review-card">
+      <div class="review-carousel" aria-label="독자리뷰">
+        <button class="review-nav prev" type="button" aria-label="이전 후기">‹</button>
+        <div class="review-track">
+        <article class="review-card is-active">
           <div class="review-image">후기 사진이 들어갈 자리 1</div>
           <p class="review-stars">별점이 들어갈 자리</p>
           <h3>후기 제목이 들어갈 자리</h3>
@@ -197,6 +204,23 @@ html{scroll-behavior:smooth}
           <p class="review-text">후기 내용이 들어갈 자리입니다.</p>
           <p class="review-author">작성자명이 들어갈 자리</p>
         </article>
+        <article class="review-card">
+          <div class="review-image">후기 사진이 들어갈 자리 4</div>
+          <p class="review-stars">별점이 들어갈 자리</p>
+          <h3>후기 제목이 들어갈 자리</h3>
+          <p class="review-text">후기 내용이 들어갈 자리입니다.</p>
+          <p class="review-author">작성자명이 들어갈 자리</p>
+        </article>
+        <article class="review-card">
+          <div class="review-image">후기 사진이 들어갈 자리 5</div>
+          <p class="review-stars">별점이 들어갈 자리</p>
+          <h3>후기 제목이 들어갈 자리</h3>
+          <p class="review-text">후기 내용이 들어갈 자리입니다.</p>
+          <p class="review-author">작성자명이 들어갈 자리</p>
+        </article>
+        </div>
+        <button class="review-nav next" type="button" aria-label="다음 후기">›</button>
+        <p class="review-count"><span class="review-current">1</span> / 5</p>
       </div>
     </section>
     <section class="sec" id="spec">
@@ -250,6 +274,21 @@ document.querySelectorAll(".cover-gallery").forEach(function(gallery){
   gallery.querySelector(".prev").addEventListener("click",function(){moveTo(current-1)});
   gallery.querySelector(".next").addEventListener("click",function(){moveTo(current+1)});
   track.addEventListener("scroll",function(){current=Math.round(track.scrollLeft/track.clientWidth)});
+});
+document.querySelectorAll(".review-carousel").forEach(function(carousel){
+  var cards=Array.from(carousel.querySelectorAll(".review-card"));
+  var currentText=carousel.querySelector(".review-current");
+  var current=0;
+  function showReview(index){
+    current=(index+cards.length)%cards.length;
+    cards.forEach(function(card,cardIndex){
+      card.classList.toggle("is-active",cardIndex===current);
+    });
+    currentText.textContent=current+1;
+  }
+  carousel.querySelector(".prev").addEventListener("click",function(){showReview(current-1)});
+  carousel.querySelector(".next").addEventListener("click",function(){showReview(current+1)});
+  showReview(0);
 });
 </script>
 </body>
