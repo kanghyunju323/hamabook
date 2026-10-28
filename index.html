@@ -58,9 +58,11 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
 .info .kw a{display:inline-block;color:#3D7BD9;margin-right:6px}
 .info del{color:#999}.info .price{color:#D22;font-weight:700;font-size:16px}
 .qty{display:inline-flex;border:1px solid var(--line)}.qty span{width:26px;text-align:center}.qty b{width:36px;text-align:center;border:1px solid var(--line);border-width:0 1px}
-.btns{display:flex;gap:6px;margin-top:16px;flex-wrap:wrap}
-.btns a{border-radius:14px;background:#e6e6e6;padding:6px 16px;font-size:12px}
-.btns a.buy{background:var(--g);color:#fff;font-weight:700;padding:8px 26px;font-size:13px}
+.product-actions{display:grid;grid-template-columns:54px 54px minmax(100px,1fr) minmax(100px,1fr);gap:8px;width:100%;margin-top:16px}
+.product-actions a{box-sizing:border-box;height:52px;padding:0 12px;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;background:#fff;font-size:14px;font-weight:700}
+.product-actions .action-icon{padding:0}.product-actions .action-icon svg{width:24px;height:24px;fill:none;stroke:#222;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.product-actions .action-cart{color:var(--g);border-color:var(--g)}
+.product-actions .action-buy{color:#fff;border-color:var(--g);background:var(--g)}
 .pn{display:flex;justify-content:space-between;margin:14px 0 30px;font-size:11px;color:var(--sub)}
 .tabs{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid #999;border-bottom:0}
 .tabs a{text-align:center;padding:10px 0;background:#fafafa;border-right:1px solid var(--line);font-weight:700}
@@ -112,6 +114,7 @@ html{scroll-behavior:smooth}
   .w{padding:0 14px}.band{font-size:12px}.logo-row .w{flex-wrap:wrap;height:auto;padding:12px 14px;gap:10px}.badges{display:none}.srch{max-width:none;flex-basis:100%}
   .gnb .w{overflow-x:auto;gap:16px}.gnb .r{display:none}
   .body{grid-template-columns:1fr}.side{display:none}.pdp{grid-template-columns:1fr}.cover-gallery{height:320px}
+  .product-actions{grid-template-columns:48px 48px minmax(0,1fr) minmax(0,1fr);gap:6px}.product-actions a{height:50px;padding:0 8px;font-size:13px}
   .tabs{grid-template-columns:repeat(2,1fr)}.sec .grid{grid-template-columns:1fr}.review-carousel{padding:0 42px}.field{grid-template-columns:100px 1fr}.ft .w{grid-template-columns:1fr}
 }
 </style>
@@ -162,7 +165,12 @@ gtag('config', 'G-3EEZ2H72N4');
           <tr><th>판매가</th><td class="price">33,000원</td></tr>
           <tr><th>주문수량</th><td><span class="qty"><span>－</span><b>1</b><span>＋</span></span></td></tr>
         </table>
-        <div class="btns"><a class="buy" href="#order" id="cta-main" data-analytics-event="cta_click" data-analytics-name="구매하기" data-analytics-location="product_summary" data-analytics-target="order">구매하기</a><a href="#intro" data-analytics-event="section_navigation" data-analytics-name="목록" data-analytics-location="product_summary" data-analytics-target="intro">목록</a><a href="#order" data-analytics-event="cta_click" data-analytics-name="찜하기" data-analytics-location="product_summary" data-analytics-target="order">찜하기</a></div>
+        <div class="product-actions">
+          <a class="action-icon" href="#order" aria-label="찜하기" title="찜하기" data-analytics-event="cta_click" data-analytics-name="찜하기" data-analytics-location="product_summary" data-analytics-target="order"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg></a>
+          <a class="action-icon" href="#order" aria-label="선물하기" title="선물하기" data-analytics-event="cta_click" data-analytics-name="선물하기" data-analytics-location="product_summary" data-analytics-target="order"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 7v14M12 7H7.5a2.5 2.5 0 1 1 2.5-2.5C10 6 12 7 12 7Zm0 0h4.5A2.5 2.5 0 1 0 14 4.5C14 6 12 7 12 7Z"/></svg></a>
+          <a class="action-cart" href="#order" data-analytics-event="cta_click" data-analytics-name="장바구니" data-analytics-location="product_summary" data-analytics-target="order">장바구니</a>
+          <a class="action-buy" href="#order" id="cta-main" data-analytics-event="cta_click" data-analytics-name="구매하기" data-analytics-location="product_summary" data-analytics-target="order">구매하기</a>
+        </div>
       </div>
     </section>
     <p class="pn"><span>◀ 이전상품</span><span>확대보기</span><span>다음상품 ▶</span></p>
