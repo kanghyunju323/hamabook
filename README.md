@@ -39,8 +39,17 @@
 
 분석 도구를 붙이면 `index.html` 안 개인정보 안내 팝업에 "익명 방문 통계를 집계할 수 있다"는 항목을 추가해야 합니다(문구는 팝업 안 5번 항목 예시 참고).
 
+### GA4 설정
+
+- 측정 ID: `G-3EEZ2H72N4`
+- 공통 이벤트 로직: `assets/analytics.js`
+- 기본 페이지 조회 외에 `view_item`, `cta_click`, `form_start`, `generate_lead`, `section_navigation`, `item_gallery_navigation`, `form_validation_error`, `privacy_modal_open`, `privacy_consent_update`, `privacy_modal_close`, `return_home`을 수집합니다.
+- 이름과 연락처를 포함한 폼 입력값은 GA4 이벤트 파라미터로 전송하지 않습니다.
+- GA4 관리 화면에서 `generate_lead`를 주요 이벤트로 지정하면 신청 완료 전환을 확인할 수 있습니다.
+
 ## 개인정보 약속 (중요)
 
 지금 이 페이지는 신청 폼에 입력한 값을 **어디에도 보내지 않고 바로 지웁니다.** 팝업에도 그렇게 적혀 있습니다.
 
 나중에 폼을 Make, 구글 시트, 이메일 등에 연결해 실제로 정보를 받게 되면, 그 순간 팝업의 "절대 저장하지 않습니다" 문구는 거짓이 됩니다. 그때는 반드시 수집 항목, 목적, 보관 기간, 파기 방법을 적은 개인정보 처리방침으로 바꾸세요.
+

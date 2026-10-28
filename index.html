@@ -115,20 +115,27 @@ html{scroll-behavior:smooth}
   .tabs{grid-template-columns:repeat(3,1fr)}.sec .grid{grid-template-columns:1fr}.review-carousel{padding:0 42px}.field{grid-template-columns:100px 1fr}.ft .w{grid-template-columns:1fr}
 }
 </style>
-<!-- GA4 (Day 34에 여기에 붙이기) -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3EEZ2H72N4"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-3EEZ2H72N4');
+</script>
 <!-- Meta Pixel (Day 35에 여기에 붙이기) -->
 <!-- Microsoft Clarity (Day 38에 여기에 붙이기) -->
 <!-- Schema JSON-LD (Day 29) -->
 </head>
 <body>
-<div class="band"><a href="#order">팝업북 출간 기념 이벤트</a><a href="#intro">&lt;펼쳐라!&gt;시리즈 몰아보기</a></div>
-<div class="util"><div class="w"><span><a href="./">HOME</a><a href="#">BOOKMARK</a><a href="#">EVENT</a></span><span><a href="#order">구매 신청</a><a href="#" data-privacy-open>개인정보 안내</a></span></div></div>
+<div class="band"><a href="#order" data-analytics-event="cta_click" data-analytics-name="팝업북 출간 기념 이벤트" data-analytics-location="top_banner" data-analytics-target="order">팝업북 출간 기념 이벤트</a><a href="#intro" data-analytics-event="section_navigation" data-analytics-name="펼쳐라 시리즈 몰아보기" data-analytics-location="top_banner" data-analytics-target="intro">&lt;펼쳐라!&gt;시리즈 몰아보기</a></div>
+<div class="util"><div class="w"><span><a href="./">HOME</a><a href="#">BOOKMARK</a><a href="#">EVENT</a></span><span><a href="#order" data-analytics-event="cta_click" data-analytics-name="구매 신청" data-analytics-location="utility_navigation" data-analytics-target="order">구매 신청</a><a href="#" data-privacy-open data-privacy-source="header">개인정보 안내</a></span></div></div>
 <header class="logo-row"><div class="w">
   <a class="logo" href="./">하마북<small>HAMA BOOK</small></a>
   <div class="srch"><span>공룡 팝업북을 찾아보세요</span><b>⌕</b></div>
-  <div class="badges"><a href="#order" id="cta-top">공지사항</a><a href="#intro">고객센터</a></div>
+  <div class="badges"><a href="#order" id="cta-top" data-analytics-event="cta_click" data-analytics-name="공지사항" data-analytics-location="header_badge" data-analytics-target="order">공지사항</a><a href="#intro" data-analytics-event="section_navigation" data-analytics-name="고객센터" data-analytics-location="header_badge" data-analytics-target="intro">고객센터</a></div>
 </div></header>
-<nav class="gnb"><div class="w"><span class="all">≡ 전체메뉴보기</span><a href="#intro">도서</a><a href="#order">쇼핑</a><a href="#">이벤트</a><a href="#">커뮤니티</a><span class="r"><a href="#">신간</a><a href="#">추천</a><a href="#">팝업북</a></span></div></nav>
+<nav class="gnb"><div class="w"><span class="all">≡ 전체메뉴보기</span><a href="#intro" data-analytics-event="section_navigation" data-analytics-name="도서" data-analytics-location="main_navigation" data-analytics-target="intro">도서</a><a href="#order" data-analytics-event="cta_click" data-analytics-name="쇼핑" data-analytics-location="main_navigation" data-analytics-target="order">쇼핑</a><a href="#">이벤트</a><a href="#">커뮤니티</a><span class="r"><a href="#">신간</a><a href="#">추천</a><a href="#">팝업북</a></span></div></nav>
 
 <main class="w body">
   <aside class="side">
@@ -155,12 +162,12 @@ html{scroll-behavior:smooth}
           <tr><th>판매가</th><td class="price">33,000원</td></tr>
           <tr><th>주문수량</th><td><span class="qty"><span>－</span><b>1</b><span>＋</span></span></td></tr>
         </table>
-        <div class="btns"><a class="buy" href="#order" id="cta-main">구매하기</a><a href="#intro">목록</a><a href="#order">찜하기</a></div>
+        <div class="btns"><a class="buy" href="#order" id="cta-main" data-analytics-event="cta_click" data-analytics-name="구매하기" data-analytics-location="product_summary" data-analytics-target="order">구매하기</a><a href="#intro" data-analytics-event="section_navigation" data-analytics-name="목록" data-analytics-location="product_summary" data-analytics-target="intro">목록</a><a href="#order" data-analytics-event="cta_click" data-analytics-name="찜하기" data-analytics-location="product_summary" data-analytics-target="order">찜하기</a></div>
       </div>
     </section>
     <p class="pn"><span>◀ 이전상품</span><span>확대보기</span><span>다음상품 ▶</span></p>
 
-    <nav class="tabs"><a class="on" href="#intro">책소개</a><a href="#intro">작가소개</a><a href="#reviews">독자리뷰</a></nav>
+    <nav class="tabs"><a class="on" href="#intro" data-analytics-event="section_navigation" data-analytics-name="책소개" data-analytics-location="content_tab" data-analytics-target="intro">책소개</a><a href="#intro" data-analytics-event="section_navigation" data-analytics-name="작가소개" data-analytics-location="content_tab" data-analytics-target="intro">작가소개</a><a href="#reviews" data-analytics-event="section_navigation" data-analytics-name="독자리뷰" data-analytics-location="content_tab" data-analytics-target="reviews">독자리뷰</a></nav>
     <section class="art" id="intro">
       <p class="q">평일에는 일하는 아빠,<br>주말에는 아이가 기다리는<br>공룡 탐험 대장이 되어보세요.</p>
       <h2>펼쳐라, 공룡시대!</h2>
@@ -234,7 +241,7 @@ html{scroll-behavior:smooth}
         <label class="field"><span>이름</span><input id="f-name" type="text" required maxlength="20" placeholder="홍길동"></label>
 <label class="field"><span>연락처</span><input id="f-contact" type="tel" required pattern="[0-9\- ]{9,14}" placeholder="010-0000-0000"></label>
 
-        <div class="safe-note"><span aria-hidden="true">🔒</span><div>입력한 정보는 <b>어디에도 전송·저장되지 않고</b> 완료 즉시 지워집니다. <button type="button" data-privacy-open>자세히 보기</button></div></div>
+        <div class="safe-note"><span aria-hidden="true">🔒</span><div>입력한 정보는 <b>어디에도 전송·저장되지 않고</b> 완료 즉시 지워집니다. <button type="button" data-privacy-open data-privacy-source="form_detail">자세히 보기</button></div></div>
         <button class="submit" type="submit" id="cta-submit">구매하기</button>
       </form>
     </section>
@@ -244,7 +251,7 @@ html{scroll-behavior:smooth}
 <footer class="ft"><div class="w">
   <div><b style="color:var(--g);font-size:16px">하마북</b></div>
   <div>이 페이지는 수업 실습용 페이지입니다. 실제 판매·결제는 이루어지지 않으며, 표기된 수치·후기는 예시입니다.</div>
-  <div><a href="#order">구매 신청</a><a href="#" data-privacy-open>개인정보 처리 안내</a></div>
+  <div><a href="#order" data-analytics-event="cta_click" data-analytics-name="구매 신청" data-analytics-location="footer" data-analytics-target="order">구매 신청</a><a href="#" data-privacy-open data-privacy-source="footer">개인정보 처리 안내</a></div>
 </div></footer>
 <div class="modal" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" aria-hidden="true">
   <div class="modal-box">
@@ -254,6 +261,7 @@ html{scroll-behavior:smooth}
       <li><strong>입력하신 정보는 절대 저장하지 않습니다.</strong> 서버, 데이터베이스, 스프레드시트, 이메일, 외부 서비스 어디로도 전송되지 않습니다.</li>
       <li>입력값은 이 브라우저 화면에만 잠시 머물며, 완료 버튼을 누르는 <strong>즉시 화면에서 지워집니다.</strong> 쿠키나 브라우저 저장소에도 남기지 않습니다.</li>
       <li>페이지 제작자와 강사를 포함한 <strong>누구도 입력값을 볼 수 없습니다.</strong></li>
+      <li>Google Analytics 4를 통해 버튼 클릭과 페이지 조회 등 <strong>개인정보가 아닌 익명 이용 통계</strong>를 집계할 수 있습니다. 이름과 연락처 입력값은 분석 도구로 전송하지 않습니다.</li>
     </ol>
     <label><input type="checkbox" id="privacy-agree"> 위 내용을 확인했으며, 입력값이 저장되지 않고 즉시 파기된다는 점에 동의합니다.</label>
     <div class="modal-actions">
@@ -261,7 +269,7 @@ html{scroll-behavior:smooth}
       <button type="button" class="ok" id="privacy-ok" disabled>확인했습니다</button>
     </div>
   </div>
-</div><script src="assets/privacy.js"></script>
+</div><script src="assets/privacy.js"></script><script src="assets/analytics.js"></script>
 <script>
 document.querySelectorAll(".cover-gallery").forEach(function(gallery){
   var track=gallery.querySelector(".cover-track");
@@ -293,3 +301,4 @@ document.querySelectorAll(".review-carousel").forEach(function(carousel){
 </script>
 </body>
 </html>
+
