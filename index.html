@@ -186,7 +186,6 @@ gtag('config', 'G-3EEZ2H72N4');
     </section>
     <section class="reviews sec" id="reviews">
       <h2>리뷰</h2>
-      <p class="reviews-intro">후기 자료가 준비되면 이곳에 등록됩니다.</p>
       <div class="review-carousel" aria-label="리뷰">
         <button class="review-nav prev" type="button" aria-label="이전 후기">‹</button>
         <div class="review-track">
@@ -287,6 +286,7 @@ document.querySelectorAll(".review-carousel").forEach(function(carousel){
   var cards=Array.from(carousel.querySelectorAll(".review-card"));
   var currentText=carousel.querySelector(".review-current");
   var current=0;
+  var autoPlay;
   function showReview(index){
     current=(index+cards.length)%cards.length;
     cards.forEach(function(card,cardIndex){
@@ -294,9 +294,20 @@ document.querySelectorAll(".review-carousel").forEach(function(carousel){
     });
     currentText.textContent=current+1;
   }
-  carousel.querySelector(".prev").addEventListener("click",function(){showReview(current-1)});
-  carousel.querySelector(".next").addEventListener("click",function(){showReview(current+1)});
+  function startAutoPlay(){
+    clearInterval(autoPlay);
+    autoPlay=setInterval(function(){showReview(current+1)},3000);
+  }
+  carousel.querySelector(".prev").addEventListener("click",function(){
+    showReview(current-1);
+    startAutoPlay();
+  });
+  carousel.querySelector(".next").addEventListener("click",function(){
+    showReview(current+1);
+    startAutoPlay();
+  });
   showReview(0);
+  startAutoPlay();
 });
 </script>
 </body>
