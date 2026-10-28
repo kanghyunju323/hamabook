@@ -62,7 +62,7 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
 .btns a{border-radius:14px;background:#e6e6e6;padding:6px 16px;font-size:12px}
 .btns a.buy{background:var(--g);color:#fff;font-weight:700;padding:8px 26px;font-size:13px}
 .pn{display:flex;justify-content:space-between;margin:14px 0 30px;font-size:11px;color:var(--sub)}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #999;border-bottom:0}
+.tabs{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid #999;border-bottom:0}
 .tabs a{text-align:center;padding:10px 0;background:#fafafa;border-right:1px solid var(--line);font-weight:700}
 .tabs a:last-child{border:0}.tabs a.on{background:#555;color:#fff}
 .sec{border:1px solid var(--line);border-top:2px solid #555;padding:24px;margin-bottom:24px}
@@ -112,7 +112,7 @@ html{scroll-behavior:smooth}
   .w{padding:0 14px}.band{font-size:12px}.logo-row .w{flex-wrap:wrap;height:auto;padding:12px 14px;gap:10px}.badges{display:none}.srch{max-width:none;flex-basis:100%}
   .gnb .w{overflow-x:auto;gap:16px}.gnb .r{display:none}
   .body{grid-template-columns:1fr}.side{display:none}.pdp{grid-template-columns:1fr}.cover-gallery{height:320px}
-  .tabs{grid-template-columns:repeat(3,1fr)}.sec .grid{grid-template-columns:1fr}.review-carousel{padding:0 42px}.field{grid-template-columns:100px 1fr}.ft .w{grid-template-columns:1fr}
+  .tabs{grid-template-columns:repeat(2,1fr)}.sec .grid{grid-template-columns:1fr}.review-carousel{padding:0 42px}.field{grid-template-columns:100px 1fr}.ft .w{grid-template-columns:1fr}
 }
 </style>
 <!-- Google tag (gtag.js) -->
@@ -167,7 +167,7 @@ gtag('config', 'G-3EEZ2H72N4');
     </section>
     <p class="pn"><span>◀ 이전상품</span><span>확대보기</span><span>다음상품 ▶</span></p>
 
-    <nav class="tabs"><a class="on" href="#intro" data-analytics-event="section_navigation" data-analytics-name="책소개" data-analytics-location="content_tab" data-analytics-target="intro">책소개</a><a href="#intro" data-analytics-event="section_navigation" data-analytics-name="작가소개" data-analytics-location="content_tab" data-analytics-target="intro">작가소개</a><a href="#reviews" data-analytics-event="section_navigation" data-analytics-name="독자리뷰" data-analytics-location="content_tab" data-analytics-target="reviews">독자리뷰</a></nav>
+    <nav class="tabs"><a class="on" href="#intro" data-analytics-event="section_navigation" data-analytics-name="책소개" data-analytics-location="content_tab" data-analytics-target="intro">책소개</a><a href="#reviews" data-analytics-event="section_navigation" data-analytics-name="리뷰" data-analytics-location="content_tab" data-analytics-target="reviews">리뷰</a></nav>
     <section class="art" id="intro">
       <p class="q">평일에는 일하는 아빠,<br>주말에는 아이가 기다리는<br>공룡 탐험 대장이 되어보세요.</p>
       <h2>펼쳐라, 공룡시대!</h2>
@@ -185,9 +185,9 @@ gtag('config', 'G-3EEZ2H72N4');
       <div class="meta-image"><img src="assets/meta-ad.webp" alt="아이와 함께 공룡 팝업북을 읽는 아빠"></div>
     </section>
     <section class="reviews sec" id="reviews">
-      <h2>독자리뷰</h2>
+      <h2>리뷰</h2>
       <p class="reviews-intro">후기 자료가 준비되면 이곳에 등록됩니다.</p>
-      <div class="review-carousel" aria-label="독자리뷰">
+      <div class="review-carousel" aria-label="리뷰">
         <button class="review-nav prev" type="button" aria-label="이전 후기">‹</button>
         <div class="review-track">
         <article class="review-card is-active">
