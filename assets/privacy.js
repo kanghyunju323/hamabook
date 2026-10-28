@@ -12,6 +12,13 @@
   var ok = document.getElementById('privacy-ok');
   var cancel = document.getElementById('privacy-cancel');
   var mode = 'info';
+  var openSource = 'unknown';
+
+  function analytics(method) {
+    if (!window.HamaAnalytics || typeof window.HamaAnalytics[method] !== 'function') return;
+    var args = Array.prototype.slice.call(arguments, 1);
+    window.HamaAnalytics[method].apply(window.HamaAnalytics, args);
+  }
 
   function wipe() {
     if (!form) return;
@@ -22,44 +29,58 @@
     form.reset();
   }
 
-  function open(m) {
+  function open(m, source) {
     mode = m;
+    openSource = source || 'unknown';
     agree.checked = false;
     ok.disabled = true;
     ok.textContent = m === 'submit' ? '동의하고 완료하기' : '확인했습니다';
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     agree.focus();
+    analytics('privacyModalOpen', openSource, mode);
   }
 
-  function close() {
+  function close(method) {
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
+    analytics('privacyModalClose', method || 'unknown', mode, openSource);
   }
 
-  agree.addEventListener('change', function () { ok.disabled = !agree.checked; });
-  cancel.addEventListener('click', close);
-  modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  agree.addEventListener('change', function () {
+    ok.disabled = !agree.checked;
+    analytics('privacyConsentUpdate', agree.checked, mode);
+  });
+  cancel.addEventListener('click', function () { close('cancel_button'); });
+  modal.addEventListener('click', function (e) { if (e.target === modal) close('backdrop'); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) close('escape_key');
+  });
 
   ok.addEventListener('click', function () {
-    if (mode !== 'submit') { close(); return; }
+    if (mode !== 'submit') { close('confirmed'); return; }
     wipe();
-    // 분석 도구를 붙였다면 여기서 개인정보 없이 이벤트 이름만 보냅니다 (Day 34~35).
-    if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead');
     if (typeof window.fbq === 'function') window.fbq('track', 'Lead');
-    location.replace('result.html');
+    analytics('privacyModalClose', 'lead_completed', mode, openSource);
+    if (window.HamaAnalytics && typeof window.HamaAnalytics.generateLead === 'function') {
+      window.HamaAnalytics.generateLead(function () { location.replace('result.html'); });
+    } else {
+      location.replace('result.html');
+    }
   });
 
   document.querySelectorAll('[data-privacy-open]').forEach(function (b) {
-    b.addEventListener('click', function (e) { e.preventDefault(); open('info'); });
+    b.addEventListener('click', function (e) {
+      e.preventDefault();
+      open('info', b.getAttribute('data-privacy-source') || 'unknown');
+    });
   });
 
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
-      open('submit');
+      open('submit', 'form_submit');
     });
   }
 
@@ -67,3 +88,4 @@
   var rp = document.querySelector('.review-panel button');
   if (rp) rp.addEventListener('click', function () { rp.parentNode.remove(); });
 })();
+
