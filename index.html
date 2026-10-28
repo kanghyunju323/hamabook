@@ -49,7 +49,7 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
 .loc{background:var(--box);padding:7px 12px;font-size:11px;color:var(--sub);text-align:right}
 .loc b{float:left;color:var(--ink)}
 .pdp{display:grid;grid-template-columns:340px 1fr;gap:26px;margin-top:20px}
-.cover-gallery{position:relative;height:400px;border:1px solid var(--line);overflow:hidden;background:#fff}.cover-track{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}.cover-track::-webkit-scrollbar{display:none}.cover-slide{flex:0 0 100%;width:100%;height:100%;scroll-snap-align:start}.cover-slide img{width:100%;height:100%;object-fit:contain;display:block}.cover-placeholder{display:grid;place-items:center;padding:30px;background:#f3f3f3;color:#888;text-align:center;font-size:13px}.cover-nav{position:absolute;z-index:2;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:24px;line-height:1;cursor:pointer}.cover-nav.prev{left:10px}.cover-nav.next{right:10px}
+.cover-gallery{position:relative;height:400px;border:1px solid var(--line);overflow:hidden;background:#fff}.cover-track{width:100%;height:100%}.cover-slide{display:none;width:100%;height:100%}.cover-slide.is-active{display:block}.cover-slide img{width:100%;height:100%;object-fit:contain;display:block}.cover-nav{position:absolute;z-index:2;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:24px;line-height:1;cursor:pointer}.cover-nav.prev{left:10px}.cover-nav.next{right:10px}
 .info h1{color:var(--g);font-size:16px;margin:0 0 10px;padding-bottom:10px;border-bottom:2px solid var(--g)}
 .info table{width:100%;border-collapse:collapse}
 .info th{width:90px;text-align:left;font-weight:400;color:var(--sub);padding:6px 0;vertical-align:top}
@@ -148,9 +148,9 @@ gtag('config', 'G-3EEZ2H72N4');
       <div class="cover-gallery" aria-label="책 다각도 사진">
         <button class="cover-nav prev" type="button" aria-label="이전 사진">‹</button>
         <div class="cover-track">
-          <div class="cover-slide"><img src="assets/dinosaur-cover.webp" alt="펼쳐라, 공룡시대! 책 정면"></div>
-          <div class="cover-slide cover-placeholder"><span>다른 각도의 책 사진이 들어갈 자리 1</span></div>
-          <div class="cover-slide cover-placeholder"><span>다른 각도의 책 사진이 들어갈 자리 2</span></div>
+          <div class="cover-slide is-active"><img src="assets/dinosaur-cover.webp" alt="펼쳐라, 공룡시대! 책 앞표지"></div>
+          <div class="cover-slide"><img src="assets/book/book-side.webp" alt="펼쳐라, 공룡시대! 책 좌측면"></div>
+          <div class="cover-slide"><img src="assets/book/book-back.webp" alt="펼쳐라, 공룡시대! 책 뒷면"></div>
         </div>
         <button class="cover-nav next" type="button" aria-label="다음 사진">›</button>
       </div>
@@ -271,16 +271,17 @@ gtag('config', 'G-3EEZ2H72N4');
 </div><script src="assets/privacy.js"></script><script src="assets/analytics.js"></script>
 <script>
 document.querySelectorAll(".cover-gallery").forEach(function(gallery){
-  var track=gallery.querySelector(".cover-track");
-  var slides=Array.from(track.querySelectorAll(".cover-slide"));
+  var slides=Array.from(gallery.querySelectorAll(".cover-slide"));
   var current=0;
-  function moveTo(index){
+  function showCover(index){
     current=(index+slides.length)%slides.length;
-    track.scrollTo({left:slides[current].offsetLeft,behavior:"smooth"});
+    slides.forEach(function(slide,slideIndex){
+      slide.classList.toggle("is-active",slideIndex===current);
+    });
   }
-  gallery.querySelector(".prev").addEventListener("click",function(){moveTo(current-1)});
-  gallery.querySelector(".next").addEventListener("click",function(){moveTo(current+1)});
-  track.addEventListener("scroll",function(){current=Math.round(track.scrollLeft/track.clientWidth)});
+  gallery.querySelector(".prev").addEventListener("click",function(){showCover(current-1)});
+  gallery.querySelector(".next").addEventListener("click",function(){showCover(current+1)});
+  showCover(0);
 });
 document.querySelectorAll(".review-carousel").forEach(function(carousel){
   var cards=Array.from(carousel.querySelectorAll(".review-card"));
