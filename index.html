@@ -16,6 +16,7 @@
 <style>
 @font-face{font-family:"Hama RIDI Batang";src:url("assets/fonts/ridibatang-subset.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"Hama SB Aggro";src:url("assets/fonts/sb-aggro-bold-subset.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Hama Memoment Kkukkukk";src:url("assets/fonts/memoment-kkukkukk-intro.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 :root{--g:#176B5B;--ac:#F4A340;--ink:#333;--sub:#777;--line:#DDD;--box:#F2F2F2}
 body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--ink);background:#fff;font-size:12px;line-height:1.6}
 .w{width:980px;max-width:100%;margin:0 auto}
@@ -115,6 +116,11 @@ html{scroll-behavior:smooth}
   .gnb .w{overflow-x:auto;gap:16px}.gnb .r{display:none}
   .body{grid-template-columns:1fr}.side{display:none}.pdp{grid-template-columns:1fr}.cover-gallery{height:320px}
   .product-actions{grid-template-columns:48px 48px minmax(0,1fr) minmax(0,1fr);gap:6px}.product-actions a{height:50px;padding:0 8px;font-size:13px}
+  .art{padding:72px 23px 40px;background:#FFF3D6}
+  .art .intro-lead{margin:0 0 64px;color:#805322;font-family:"Hama Memoment Kkukkukk","Pretendard Variable",Pretendard,sans-serif;font-size:12px;font-weight:400;line-height:2;text-align:center}
+  .art .intro-title{padding-bottom:10px;border-bottom:2px solid var(--g)}
+  .art .intro-title h2{margin:0;color:var(--g);font-size:38px;line-height:1.15;letter-spacing:-.06em;text-align:left;white-space:nowrap}
+  .art .intro-title .by{margin:6px 0 0;color:var(--g);font-size:12px;font-weight:500;line-height:1.4;text-align:right}
   .tabs{grid-template-columns:repeat(2,1fr)}.sec .grid{grid-template-columns:1fr}.review-carousel{padding:0 42px}.field{grid-template-columns:100px 1fr}.ft .w{grid-template-columns:1fr}
 }
 </style>
@@ -177,9 +183,11 @@ gtag('config', 'G-3EEZ2H72N4');
 
     <nav class="tabs"><a class="on" href="#intro" data-analytics-event="section_navigation" data-analytics-name="책소개" data-analytics-location="content_tab" data-analytics-target="intro">책소개</a><a href="#reviews" data-analytics-event="section_navigation" data-analytics-name="리뷰" data-analytics-location="content_tab" data-analytics-target="reviews">리뷰</a></nav>
     <section class="art" id="intro">
-      <p class="q">평일에는 일하는 아빠,<br>주말에는 아이가 기다리는<br>공룡 탐험 대장이 되어보세요.</p>
-      <h2>펼쳐라, 공룡시대!</h2>
-      <p class="by">라일라 로시 지음</p>
+      <p class="q intro-lead">평일에는 일하는 아빠,<br>주말에는 아이가 기다리는 공룡 탐험 대장이 되어보세요.</p>
+      <div class="intro-title">
+        <h2>펼쳐라, 공룡시대!</h2>
+        <p class="by">라일라 로시 지음</p>
+      </div>
       <div class="bk"><img src="assets/dinosaur-cover.webp" alt="펼쳐라, 공룡시대! 책 표지"></div>
       <p class="q">“펼치는 순간,<br>우리 집이 공룡시대가 돼요.”</p>
       <p>큰 입을 벌리는 티라노사우루스부터<br>긴 목을 뻗는 브라키오사우루스까지.<br>공룡 팝업이 각 페이지마다<br>튀어나와요.</p>
