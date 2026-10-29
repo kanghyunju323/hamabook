@@ -13,9 +13,43 @@
   var galleryIndex = 0;
   var galleryLength = 3;
 
+  function trackMetaEvent(eventName, params) {
+    if (eventName === 'page_view' || /scroll/i.test(eventName)) return;
+    if (eventName === 'sign_up') {
+      if (window.fbq) fbq('track', 'CompleteRegistration');
+      return;
+    }
+    if (eventName === 'contact_click') {
+      if (window.fbq) fbq('track', 'Contact');
+      return;
+    }
+    if (eventName === 'view_item') {
+      if (window.fbq) fbq('track', 'ViewContent');
+      return;
+    }
+    if (eventName === 'add_to_cart') {
+      if (window.fbq) fbq('track', 'AddToCart');
+      return;
+    }
+    if (eventName === 'begin_checkout') {
+      if (window.fbq) fbq('track', 'InitiateCheckout');
+      return;
+    }
+    if (eventName === 'purchase') {
+      if (window.fbq) fbq('track', 'Purchase', { value: params && params.value, currency: 'KRW' });
+      return;
+    }
+    if (eventName === 'search') {
+      if (window.fbq) fbq('track', 'Search');
+      return;
+    }
+    if (window.fbq) fbq('trackCustom', eventName);
+  }
+
   function send(eventName, params) {
     if (typeof window.gtag !== 'function') return;
     window.gtag('event', eventName, params || {});
+    trackMetaEvent(eventName, params || {});
   }
 
   function trackCta(element) {
@@ -144,6 +178,7 @@
         event_callback: finish,
         event_timeout: 1500
       });
+      if (window.fbq) fbq('track', 'Lead');
       window.setTimeout(finish, 1700);
     }
   };
