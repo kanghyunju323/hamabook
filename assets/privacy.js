@@ -60,7 +60,6 @@
   ok.addEventListener('click', function () {
     if (mode !== 'submit') { close('confirmed'); return; }
     wipe();
-    if (typeof window.fbq === 'function') window.fbq('track', 'Lead');
     analytics('privacyModalClose', 'lead_completed', mode, openSource);
     if (window.HamaAnalytics && typeof window.HamaAnalytics.generateLead === 'function') {
       window.HamaAnalytics.generateLead(function () { location.replace('result.html'); });
