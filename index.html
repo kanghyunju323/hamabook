@@ -88,6 +88,11 @@ body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif;color:var(--i
 .art .meta-image{height:auto;margin:40px 0}.art .meta-image img{width:100%;height:auto;display:block}
 .art .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:13px;line-height:1.6}.art .grid div{background:#fff;padding:14px}.art .grid b{display:block;color:var(--g)}.art .pretendard-body{font-family:"Pretendard Variable",Pretendard,Dotum,sans-serif}
 .art p,.art h2,.art .grid div,.art .meta-copy{text-align:center}
+.detail-more{position:relative;display:flow-root}
+.detail-more.is-collapsed{max-height:var(--collapsed-height);overflow:hidden}
+.detail-more.is-collapsed::after{content:"";position:absolute;right:0;bottom:0;left:0;height:120px;background:linear-gradient(to bottom,rgba(255,243,214,0),#FFF3D6);pointer-events:none}
+.detail-toggle{width:220px;height:48px;margin:22px auto 10px;border:1px solid var(--g);border-radius:24px;display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;color:var(--g);font:inherit;font-weight:700;cursor:pointer}
+.detail-toggle-icon{font-size:18px;line-height:1}
 html{scroll-behavior:smooth}
 #reviews{scroll-margin-top:20px}
 .reviews{text-align:center}
@@ -219,6 +224,7 @@ src="https://www.facebook.com/tr?id=2531827930636802&ev=PageView&noscript=1"
       <div class="bk"><img src="assets/dinosaur-cover.webp" alt="펼쳐라, 공룡시대! 책 표지"></div>
       <p class="q moment-copy">“펼치는 순간 우리집이 공룡시대가 돼요!”</p>
       <p>커다란 뿔을 가지고 있는 트리케라톱스부터<br>긴 목을 뻗는 브라키오사우루스까지.<br>공룡 팝업이 각 페이지마다 튀어나와요.</p>
+      <div class="detail-more is-collapsed" id="detail-more">
       <div class="sp sp-large"><img src="assets/spread-01.webp" alt="트리케라톱스 팝업 페이지"></div>
       <p class="q">공룡을 좋아하는 아이를 위한<span class="desktop-only"> </span><br class="mobile-only">20개의 입체 팝업</p>
       <div class="grid"><div><b>메인 팝업 6개</b><span class="popup-body">펼치는 순간<br>공룡이 일어서는<br>큰 팝업</span></div><div><b>미니 팝업 14개</b><span class="popup-body pretendard-body">들추고 당기며<br>직접 찾는<br>작은 팝업</span></div><div><b>리딩 QR</b><span class="popup-body">아이와<br>함께 듣는<br>공룡 이야기</span></div></div>
@@ -227,6 +233,11 @@ src="https://www.facebook.com/tr?id=2531827930636802&ev=PageView&noscript=1"
       <div class="sp sp-large"><img src="assets/spread-03.webp" alt="프테라노돈 팝업 페이지"></div>
       <div class="meta-copy q">짧은 주말이지만,<br>아이의 마음에는 오래 남을<br class="mobile-only">추억을 남겨보세요.</div>
       <div class="meta-image"><img src="assets/meta-ad.webp" alt="아이와 함께 공룡 팝업북을 읽는 아빠"></div>
+      </div>
+      <button class="detail-toggle" type="button" aria-expanded="false" aria-controls="detail-more">
+        <span class="detail-toggle-text">상세 내용 펼쳐보기</span>
+        <span class="detail-toggle-icon" aria-hidden="true">∨</span>
+      </button>
     </section>
     <section class="reviews sec" id="reviews">
       <h2>리뷰</h2>
@@ -353,6 +364,41 @@ document.querySelectorAll(".review-carousel").forEach(function(carousel){
   });
   showReview(0);
   startAutoPlay();
+});
+document.querySelectorAll(".detail-more").forEach(function(detail){
+  var button=document.querySelector('[aria-controls="'+detail.id+'"]');
+  var firstImage=detail.querySelector(".sp img");
+  if(!button||!firstImage)return;
+  var buttonText=button.querySelector(".detail-toggle-text");
+  var buttonIcon=button.querySelector(".detail-toggle-icon");
+
+  function setCollapsedHeight(){
+    if(!firstImage.complete)return;
+    var detailRect=detail.getBoundingClientRect();
+    var imageRect=firstImage.getBoundingClientRect();
+    var collapsedHeight=imageRect.top-detailRect.top+imageRect.height/2;
+    detail.style.setProperty("--collapsed-height",collapsedHeight+"px");
+  }
+
+  function setExpanded(expanded){
+    detail.classList.toggle("is-collapsed",!expanded);
+    button.setAttribute("aria-expanded",String(expanded));
+    buttonText.textContent=expanded?"상세 내용 접기":"상세 내용 펼쳐보기";
+    buttonIcon.textContent=expanded?"∧":"∨";
+    if(!expanded){
+      setCollapsedHeight();
+      requestAnimationFrame(function(){
+        detail.scrollIntoView({behavior:"smooth",block:"start"});
+      });
+    }
+  }
+
+  button.addEventListener("click",function(){
+    setExpanded(button.getAttribute("aria-expanded")!=="true");
+  });
+  firstImage.addEventListener("load",setCollapsedHeight);
+  window.addEventListener("resize",setCollapsedHeight);
+  setCollapsedHeight();
 });
 </script>
 </body>
