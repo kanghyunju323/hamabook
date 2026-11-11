@@ -169,6 +169,7 @@
         finish();
         return;
       }
+      if (window.sendLeadLog) window.sendLeadLog();
       window.gtag('event', 'generate_lead', {
         currency: 'KRW',
         value: ITEM.price,
